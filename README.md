@@ -22,13 +22,13 @@ For this application example, the model for R0 takes into account many metrics s
  * Distributions from real world data
  */
 
-lifeExpectancy = libUncertainDoubleDistFromSamples(lifeExpectancyData, kMaxData);
+lifeExpectancy = UxHwDoubleDistFromSamples(lifeExpectancyData, kMaxData);
 mu = 1 / lifeExpectancy;
 
 /*
  * Adding distributional information
  */
-mp = libUncertainDoubleGaussDist(pathogenDeathRateMean, pathogenDeathRateDeviation);
+mp = UxHwDoubleGaussDist(pathogenDeathRateMean, pathogenDeathRateDeviation);
 
 /*
  * Keeping just the mean value

@@ -25,7 +25,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
-#include<uncertain.h>
+#include<uxhw.h>
 
 enum
 {
@@ -76,13 +76,13 @@ main(int argc, char const *argv[])
 
 		fclose(fp);
 
-		lifeExpectancy = libUncertainDoubleDistFromSamples(lifeExpectancyData, kMaxData);
+		lifeExpectancy = UxHwDoubleDistFromSamples(lifeExpectancyData, kMaxData);
 	}
 	else
 	{
 		double lifeExpectancyMedian = 65 * 365;
 		double lifeExpectancyDeviation = 40;
-		lifeExpectancy = libUncertainDoubleGaussDist(lifeExpectancyMedian, lifeExpectancyDeviation);
+		lifeExpectancy = UxHwDoubleGaussDist(lifeExpectancyMedian, lifeExpectancyDeviation);
 	}
 	
 	/*
@@ -113,16 +113,16 @@ main(int argc, char const *argv[])
 
 
 	
-	b = libUncertainDoubleGaussDist(humanBirthRateMean, humanBirthRateDeviation);
+	b = UxHwDoubleGaussDist(humanBirthRateMean, humanBirthRateDeviation);
 	mu = 1 / lifeExpectancy;
-	mp = libUncertainDoubleGaussDist(pathogenBirthRateMean, pathogenBirthRateDeviation);
-	b1 = libUncertainDoubleGaussDist(b1Mean,b1Deviation);
-	b2 = libUncertainDoubleGaussDist(b2Mean, b2Deviation);
-	delta = libUncertainDoubleGaussDist(deltaMean, deltaDeviation);
-	psi = libUncertainDoubleGaussDist(psiMean, psiDeviation);
-	omega = libUncertainDoubleGaussDist (omegaMean, omegaDeviation);
-	sigma = libUncertainDoubleGaussDist(sigmaMean, sigmaDeviation);
-	gs = libUncertainDoubleGaussDist(gsMean, gsDeviation);
+	mp = UxHwDoubleGaussDist(pathogenBirthRateMean, pathogenBirthRateDeviation);
+	b1 = UxHwDoubleGaussDist(b1Mean,b1Deviation);
+	b2 = UxHwDoubleGaussDist(b2Mean, b2Deviation);
+	delta = UxHwDoubleGaussDist(deltaMean, deltaDeviation);
+	psi = UxHwDoubleGaussDist(psiMean, psiDeviation);
+	omega = UxHwDoubleGaussDist (omegaMean, omegaDeviation);
+	sigma = UxHwDoubleGaussDist(sigmaMean, sigmaDeviation);
+	gs = UxHwDoubleGaussDist(gsMean, gsDeviation);
 	ga =  gaMean;
 	hs = hsMean;
 	ha = haMean;
